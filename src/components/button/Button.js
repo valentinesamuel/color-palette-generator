@@ -1,12 +1,7 @@
 import "./Button.css";
 
-const Button = () => {
-  return (
-    <div>
-      <p>This is the button</p>
-      <p>Press 'Spacebar' to generate new palette</p>
-    </div>
-  );
+const Button = ({ getColors }) => {
+  return <button onClick={getColors}>Fetch Data</button>;
 };
 
 export default Button;

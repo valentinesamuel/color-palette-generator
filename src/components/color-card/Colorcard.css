@@ -1,5 +1,6 @@
-.card-row{
-      display: flex;
-      width: 70%;
-      justify-content: space-around;
+.card-row {
+  display: flex;
+  width: 70%;
+  height: max-content;
+  justify-content: space-around;
 }

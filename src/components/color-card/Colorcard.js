@@ -1,13 +1,12 @@
-import './Colorcard.css'
+import "./Colorcard.css";
 
-const ColorCard = () => {
+const ColorCard = ({ colors }) => {
+  console.log(colors);
   return (
     <div className="card-row">
-      <p>This is a card</p>
-      <p>This is a card</p>
-      <p>This is a card</p>
-      <p>This is a card</p>
-      <p>This is a card</p>
+      {colors.map((color) => {
+        return <p key={Math.random()}>{color}</p>;
+      })}
     </div>
   );
 };
