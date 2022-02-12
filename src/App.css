@@ -12,3 +12,8 @@
   display: grid;
   place-items: center;
 }
+
+
+.heading{
+  margin-bottom: 40px;
+}

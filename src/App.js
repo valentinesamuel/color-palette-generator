@@ -1,16 +1,19 @@
 import "./App.css";
 import ColorCard from "./components/color-card/Colorcard";
 import Button from "./components/button/Button";
-import Prompt from "./components/prompt/Prompt";
+
 import React, { useEffect, useState } from "react";
 
 function App() {
-  const [colorsList, setColorsList] = useState(["w", "j", "df"]);
-  function fc() {
-    console.log("E dn");
-  }
-  const fetchColors = useEffect(() => {
-    fetch("http://colormind.io/api/", {
+  const [colorsList, setColorsList] = useState([
+    ["79c0ff"],
+    ["1f6feb"],
+    ["d2a8ff"],
+    ["ff7b72"],
+  ]);
+
+  const fc = () => {
+    fetch("https://cors-everywhere.herokuapp.com/http://colormind.io/api/", {
       method: "POST",
       body: JSON.stringify({ model: "default" }),
     })
@@ -18,16 +21,29 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        setColorsList(data.result);
+        console.log(data.result);
+        return setColorsList(data.result);
       });
-  }, []);
+  };
+  // const fetchColors = useEffect(() => {
+  //   fetch("https://cors-everywhere.herokuapp.com/http://colormind.io/api/", {
+  //     method: "POST",
+  //     body: JSON.stringify({ model: "default" }),
+  //   })
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       console.log(data.result);
+  //       return setColorsList(data.result);
+  //     });
+  // }, []);
 
   return (
     <div className="app">
-      <h1>Random Color Palette Generator</h1>
+      <h1 className="heading">Random Color Palette Generator</h1>
       <ColorCard colors={colorsList} />
-      <Button getColors={fetchColors} />
-      {/* <Prompt /> */}
+      <Button getColors={fc} />
     </div>
   );
 }

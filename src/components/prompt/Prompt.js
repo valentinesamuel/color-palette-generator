@@ -1,7 +1,7 @@
 import './Prompt.css'
 
-const Prompt = () => {
-  return <div>This is a prompt</div>;
+const Prompt = ({message}) => {
+  return <div>{message}</div>;
 };
 
 export default Prompt;
