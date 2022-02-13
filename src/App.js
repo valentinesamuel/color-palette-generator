@@ -2,7 +2,7 @@ import "./App.css";
 import ColorCard from "./components/color-card/Colorcard";
 import Button from "./components/button/Button";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 function App() {
   const [colorsList, setColorsList] = useState([
@@ -12,7 +12,7 @@ function App() {
     ["ff7b72"],
   ]);
 
-  const fc = () => {
+  const fetchColors = () => {
     fetch("https://cors-everywhere.herokuapp.com/http://colormind.io/api/", {
       method: "POST",
       body: JSON.stringify({ model: "default" }),
@@ -25,25 +25,13 @@ function App() {
         return setColorsList(data.result);
       });
   };
-  // const fetchColors = useEffect(() => {
-  //   fetch("https://cors-everywhere.herokuapp.com/http://colormind.io/api/", {
-  //     method: "POST",
-  //     body: JSON.stringify({ model: "default" }),
-  //   })
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       console.log(data.result);
-  //       return setColorsList(data.result);
-  //     });
-  // }, []);
+  
 
   return (
     <div className="app">
       <h1 className="heading">Random Color Palette Generator</h1>
       <ColorCard colors={colorsList} />
-      <Button getColors={fc} />
+      <Button getColors={fetchColors} />
     </div>
   );
 }
