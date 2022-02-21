@@ -6,9 +6,11 @@ const ColorCard = ({ colors }) => {
       {colors.map((color, index) => {
         return (
           <div className="colorframe" key={index}>
-            <div className="colorcard" style={{ backgroundColor: `rgb(${color})` }}>
-              {color}
-            </div>
+            <div
+              className="colorcard"
+              style={{ backgroundColor: `rgb(${color})` }}
+            ></div>
+            <p className="hex-color">#{color}</p>
           </div>
         );
       })}
