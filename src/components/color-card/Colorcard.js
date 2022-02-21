@@ -1,6 +1,9 @@
+
 import "./Colorcard.css";
 
 const ColorCard = ({ colors }) => {
+
+
   return (
     <div className="card-row">
       {colors.map((color, index) => {

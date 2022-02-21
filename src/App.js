@@ -2,7 +2,8 @@ import "./App.css";
 import ColorCard from "./components/color-card/Colorcard";
 import Button from "./components/button/Button";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
 
 function App() {
   const [colorsList, setColorsList] = useState([
@@ -26,6 +27,14 @@ function App() {
       });
   };
   
+  // useEffect is used here to prevent the function from firing twice when the spacebar is pressed
+  useEffect(() => {
+    window.addEventListener('keydown', (event) => {
+    if (event.code === 'Space') {
+     fetchColors()
+   }
+  })
+}, [])
 
   return (
     <div className="app">
