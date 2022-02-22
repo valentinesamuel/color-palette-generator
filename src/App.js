@@ -7,10 +7,7 @@ import React, { useEffect, useState } from "react";
 
 function App() {
   const [colorsList, setColorsList] = useState([
-    ["79c0ff"],
-    ["1f6feb"],
-    ["d2a8ff"],
-    ["ff7b72"],
+    
   ]);
 
   const fetchColors = () => {
@@ -34,8 +31,9 @@ function App() {
      fetchColors()
    }
   })
-}, [])
-
+  }, [])
+  
+  useEffect(() => fetchColors(),[])
   return (
     <div className="app">
       <h1 className="heading">Random Color Palette Generator</h1>

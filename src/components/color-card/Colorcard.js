@@ -35,10 +35,12 @@ const ColorCard = ({ colors }) => {
   }
   return (
     <>
-      {copy.copied ? <Prompt message={copy.value.replaceAll(',', '')} show={copy.copied} /> : null}
-      <div className="card-row">
+      {copy.copied ? <Prompt message={copy.value.replaceAll(',', '').replaceAll('(', '').replaceAll(')', '')} show={copy.copied} /> : null}
+      {colors.length > 0 ? (<div className="card-row">
         {renderCard()}
-      </div>
+      </div>) : (
+        <p>Fetching Colors...</p>
+      )}
     </>
   );
 };
