@@ -1,5 +1,6 @@
 .prompt_message{
 color: white;
+z-index: 2;
 background-color: rgb(34, 33, 33);
 padding: 15px 25px;
 border-radius: 12px;

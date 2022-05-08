@@ -14,25 +14,8 @@
 
 }
 
-.colorframe {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-  border-radius: 5px;
-  padding: 10px 10px 10px 10px;
-  background-color: rgb(241, 241, 241);
-  height: max-content;
-  width: auto;
-  text-align: center;
-  margin: 20px;
-  transition: .5s;
-}
-
-.colorframe:hover{
-  transform: scale(1.2);
-
-}
 
 .hex-color{
 padding-top: 10px;
 font-size: 1rem;
-color: rgb(27, 27, 27);
 }

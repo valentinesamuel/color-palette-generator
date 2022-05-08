@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Colorcard.css";
 import Prompt from '../prompt/Prompt'
 import Clipboard from 'react-clipboard.js';
+import { ColorFrame } from "./color-card.styles";
 const ColorCard = ({ colors }) => {
 
   const [copy, setCopy] = useState({ value: '', copied: false })
@@ -14,28 +15,34 @@ const ColorCard = ({ colors }) => {
   }, [copy])
 
   const onCopy = (color) => {
-    setCopy({ value: `#(${color})`, copied: true });
+    setCopy({ value: `rgb(${color})`, copied: true });
   }
 
   const renderCard = () => {
     return colors.map((color, index) => {
       return (
-        <Clipboard key={index} data-clipboard-text={`#(${color})`} onClick={() => { onCopy(color) }} component='a'>
-
-          <div className="colorframe" >
+        <Clipboard
+          key={index}
+          data-clipboard-text={`rgb(${color})`}
+          onClick={() => {
+            onCopy(color);
+          }}
+          component="a"
+        >
+          <ColorFrame>
             <div
               className="colorcard"
               style={{ backgroundColor: `rgb(${color})` }}
             ></div>
-            <p className="hex-color">#{color}</p>
-          </div>
+            <p className="hex-color">{`rgb(${color})`}</p>
+          </ColorFrame>
         </Clipboard>
       );
     })
   }
   return (
     <>
-      {copy.copied ? <Prompt message={copy.value.replaceAll(',', '').replaceAll('(', '').replaceAll(')', '')} show={copy.copied} /> : null}
+      {copy.copied ? <Prompt message={copy.value} show={copy.copied} /> : null}
       {colors.length > 0 ? (<div className="card-row">
         {renderCard()}
       </div>) : (
